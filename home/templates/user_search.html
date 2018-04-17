@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-
+  {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,11 +11,11 @@
     <title>Search Results</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
 <!--    <link href="css/1-col-portfolio.css" rel="stylesheet"-->
-    <link href="css/landing-page.min.css" rel="stylesheet">
+    <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
 
 
   </head>
@@ -25,8 +25,8 @@
 
     <nav class="navbar navbar-light bg-light static-top">
       <div class="container">
-        <a class="navbar-brand" href="user.html">College Gateway</a>
-        <a class="btn btn-primary" href="index1.html">LogOut</a>
+        <a class="navbar-brand" href="{% url 'user' %}">College Gateway</a>
+        <a class="btn btn-primary" href="{% url 'index' %}">LogOut</a>
       </div>
     </nav>
 
@@ -158,8 +158,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   </body>
 
