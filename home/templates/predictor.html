@@ -136,6 +136,7 @@ tr:nth-child(even) {
     <table style="width:100%">
 <tr>
     <th>College</th>
+    <th>Place</th>
     <th>Department</th>
     <th>Closing Rank</th>
 </tr>
@@ -147,6 +148,7 @@ tr:nth-child(even) {
     {% if profile.advanced_rank <= department.cl_rank %}
     <tr>
         <td>{{ department.college.c_name }}</td>
+        <td>{{ department.college.c_locality }}</td>
         <td>{{ department.d_name }}</td>
         <td>{{ department.cl_rank }}</td>
     </tr>
@@ -155,6 +157,7 @@ tr:nth-child(even) {
     {% if profile.mains_rank <= department.cl_rank %}
     <tr>
         <td>{{ department.college.c_name }}</td>
+        <td>{{ department.college.c_locality }}</td>
     <td>{{ department.d_name }} </td>
     <td>{{ department.cl_rank }}</td>
     </tr>

@@ -52,11 +52,31 @@ def users(request):
 def predictor(request):
     college = College.objects.all()
     department = Department.objects.all()
+    main_rank = request.POST.get('mains_rank', '')
+    advance_rank = request.POST.get('advanced_rank', '')
+    k = get_object_or_404(Profile, pk=request.session["user_id"])
+    k.mains_rank = main_rank
+    k.advanced_rank = advance_rank
+    k.save()
     try:
         user = User.objects.get(pk=request.session["user_id"])
     except User.DoesNotExist:
         raise Http404("There is no college that matches with you")
     return render(request, 'predictor.html', {'user': user, 'college': college, 'department': department} )
+
+
+def signup(request):
+    name = request.POST.get('name', '')
+    email = request.POST.get('mail', '')
+    password = request.POST.get('passwd', '')
+    k = get_object_or_404(User, '')
+    k.name = name
+    k.mail = email
+    k.passwd = password
+    k.save()
+    return render(request, 'signup.html' , {})
+
+
 
 
 def detail4(request):

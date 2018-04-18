@@ -97,17 +97,15 @@ form.example::after {
 					<div class="wrap-input100 validate-input m-b-23">
 						<span class="label-input100">Email</span>
 						<input class="input100" type="email" name="mail" value="{{source.mail}}" placeholder="Type your registered mail-id" required>
-						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
 						<span class="label-input100">Password</span>
 						<input class="input100" type="password" name="passwd" value="{{source.passwd}}" placeholder="Type your password" required>
-						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 
 					<div class="text-right p-t-8 p-b-31">
-						<a href="signup.html">
+						<a href="{% url 'signup' %}">
 							<font color='blue'>New User?</font>
 						</a>
 					</div>
