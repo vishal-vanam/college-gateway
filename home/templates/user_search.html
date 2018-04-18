@@ -2,6 +2,24 @@
 <html lang="en">
 
   <head>
+    <style>
+          table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width:250%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+      </style>
+
 {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,12 +80,30 @@
         <div class="col-md-5">
 		<br>
 
-          <h1>{{college}}  {{locality}}</h1>
+             <div style="margin:20px">
+          <div style="margin:auto">
+<table >
+  <tr>
+    <th>College</th>
+    <th>Place</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Pincode</th>
+    <th>Website</th>
+</tr>
+<tr>
+  <td>{{college}}</td>
+  <td>{{locality}}</td>
 
-		  <h3>{{state}}</h3>
-		  <h3>{{country}}</h3>
-		  <h3>{{pincode}}</h3>
-		  <h3>{{link}}</h3>
+		  <td>{{state}}</td>
+		  <td>{{country}}</td>
+		  <td>{{pincode}}</td>
+		  <td>{{link}}</td>
+</tr>
+</table>
+
+          </div>
+        </div>
 
         </div>
       </div>

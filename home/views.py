@@ -68,12 +68,10 @@ def predictor(request):
 def signup(request):
     name = request.POST.get('name', '')
     email = request.POST.get('mail', '')
-    password = request.POST.get('passwd', '')
-    k = get_object_or_404(User, '')
-    k.name = name
-    k.mail = email
-    k.passwd = password
-    k.save()
+    password = request.POST.get('password', '')
+    # k = get_object_or_404(User, '')
+    k = User.objects.create(name=name, mail=email, password=password)
+    # k.save()
     return render(request, 'signup.html' , {})
 
 
