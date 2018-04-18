@@ -77,6 +77,23 @@ def signup(request):
     return render(request, 'signup.html' , {})
 
 
+def search(request):
+    template = loader.get_template('search.html')
+    college = request.POST.get('clg', '')
+    k = get_object_or_404(College, c_name=college)
+    locality = k.c_locality
+    state = k.c_state
+    country = k.c_country
+    pincode = k.c_pincode
+    link = k.c_link
+    if pincode > 0:
+        return HttpResponse(template.render(
+            {'college': college, 'locality': locality, 'state': state, 'country': country, 'pincode': pincode,
+             'link': link}, request))
+    else:
+        return HttpResponse("<h2> Invalid College </h2>")
+
+
 
 
 def detail4(request):

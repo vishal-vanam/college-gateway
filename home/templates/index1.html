@@ -43,10 +43,12 @@
             <h1 class="mb-5">Welcome to CollegeGateway!</h1>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="search.html" method="post">
+            {{ source }}
+            <form action="{% url 'search' %}" method="post">
+              {% csrf_token %}
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" class="form-control form-control-lg" placeholder="Enter College..." required>
+                  <input type="text" name="clg" value="{{source.clg}}" class="form-control form-control-lg" placeholder="Enter College..." required>
                 </div>
                 <div class="col-12 col-md-3">
                   <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
