@@ -1,109 +1,147 @@
 <!DOCTYPE html>
-<html>
-<title>Profile</title>
+<html lang="en">
+<head>
+{% load staticfiles %}
 <style>
-*{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+* {box-sizing: border-box;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 90%;
-    padding: 12px 20px;
-    margin: 8px 26px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-	font-size:16px;
+body {
+  margin: 0;
+  font-family: 'Lato' , Helvetica, sans-serif;
+  background: url("../img/bg-masthead.jpg") no-repeat center center;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 26px;
-    border: none;
-    cursor: pointer;
-    width: 90%;
-	font-size:20px;
-}
-button:hover {
-    opacity: 0.8;
-}
-
-
-/* The Modal (background) */
-.modal {
-	display:none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-/* Modal Content Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 4% auto 15% auto;
-    border: 1px solid #888;
-    width: 40%;
-	padding-bottom: 30px;
-}
-
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-.close:hover,.close:focus {
-    color: red;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
     cursor: pointer;
 }
 
-/* Add Zoom Animation */
-.animate {
-    animation: zoom 0.6s
+form.example button:hover {
+    background: #0b7dda;
 }
-@keyframes zoom {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
 }
+
 </style>
-</style>
-<body background="../background1.png">
+	<title>Signin</title>
 
-<h1 style="text-align:center; font-size:50px; color:#fff">Modal Popup Box Login Form</h1>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/bg-masthead.jpg' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
 
-<button onclick="document.getElementById('modal-wrapper').style.display='block'" style="width:200px; margin-top:200px; margin-left:160px;">
-Profile</button>
+<link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet"-->
 
-<div id="modal-wrapper" class="modal">
+</head>
+<body>
 
-  <form class="modal-content animate" action="predictor.html">
 
-    <div class="imgcontainer">
-    <br>
-      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
-      <h1 style="text-align:center">Profile</h1>
-    </div>
-
+  <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <input type="text" placeholder="Enter your JEE Mains rank" name="mains_rank">
-      <input type="text" placeholder="Enter your JEE Advanced rank" name="advanced_rank">
-      <button type="submit">Save</button>
+      <a class="navbar-brand" href="{% url 'user' %}">College Gateway</a>
+        <a class="btn btn-primary" href="{% url 'index' %}">Logout</a>
     </div>
-
-  </form>
-
-</div>
+  </nav>
 
 
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-masthead.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+			{{source}}
+				<form action="{% url 'predictor' %}" method="post">
+			{% csrf_token %}
+					<span class="login100-form-title p-b-49">
+						Profile
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-23">
+						<span class="label-input100">JEE Mains Rank</span>
+						<input class="input100" type="number" min="1" name="mains_rank" value="{{source.mains_rank}}" placeholder="Enter you JEE Mains rank" required>
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<span class="label-input100">JEE Advanced Rank</span>
+						<input class="input100" type="number" min="1" name="advanced_rank" value="{{source.advanced_rank}}" placeholder="Enter your JEE Advanced rank" required>
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+                    <br>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Save
+							</button>
+						</div>
+					</div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+</form>
 </body>
 </html>

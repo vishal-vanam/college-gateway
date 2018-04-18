@@ -12,7 +12,7 @@ urlpatterns = [
    path('user/profile', views.profile, name='profile'),
 
     url(r'^(?P<college_id>[0-9]+)/$', views.details, name='Details'),
-    url(r'^users/(?P<user_id>[0-9]+)/$', views.predictor, name='Predictor'),
-	url(r'^check/$', views.detail7, name='detail7'),
+    url(r'^user/predictor/$', views.predictor, name='predictor'),
+	url(r'^check/$', views.check, name='check'),
 
 ]

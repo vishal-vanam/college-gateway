@@ -78,18 +78,17 @@ form.example::after {
 
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="index1.html">College Gateway</a>
-  <a class="btn btn-primary" href="login.html">Sign in</a>
+      <a class="navbar-brand" href="{% url 'index' %}">College Gateway</a>
     </div>
   </nav>
 
 
-  <form action="user.html" method="post">
+  
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-masthead.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 			{{source}}
-				<form action="{% url 'detail7' %}" method="post">
+				<form action="{% url 'check' %}" method="post">
 			{% csrf_token %}
 					<span class="login100-form-title p-b-49">
 						Login

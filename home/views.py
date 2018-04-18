@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponse
 from django.template import loader
 from .models import *
@@ -49,33 +49,33 @@ def users(request):
 
 
 
-def predictor(request, user_id):
+def predictor(request):
     college = College.objects.all()
     department = Department.objects.all()
     try:
-        user = User.objects.get(pk=user_id)
+        user = User.objects.get(pk=request.session["user_id"])
     except User.DoesNotExist:
         raise Http404("There is no college that matches with you")
     return render(request, 'predictor.html', {'user': user, 'college': college, 'department': department} )
 
+
 def detail4(request):
-	template=loader.get_template('user.html')
-	context={
+    template=loader.get_template('user.html')
+    context={
 	
 	}
-	return HttpResponse(template.render(context,request))
-	
-def detail7(request):
-	email=request.POST.get('mail','')
-	password=request.POST.get('passwd','')
-	k=User.objects.get(mail=email)
-	if k.password == password:
-		return redirect('home:detail4')
-	else:
-		return HttpResponse("<h2>Invalid Credentials</h2>")
-	
-	
-	
-	
+    return HttpResponse(template.render(context,request))
+
+
+def check(request):
+    email = request.POST.get('mail', '')
+    password = request.POST.get('passwd', '')
+    k = get_object_or_404(User, mail=email)
+    if k.password == password:
+        request.session["user_id"] = k.pk
+        return redirect('user')
+    else:
+        return redirect('signin')
+
 	
 	
