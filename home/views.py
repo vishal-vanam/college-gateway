@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import Http404
+from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponse
+from django.template import loader
 from .models import *
 
 def index(request):
@@ -57,3 +58,24 @@ def predictor(request, user_id):
         raise Http404("There is no college that matches with you")
     return render(request, 'predictor.html', {'user': user, 'college': college, 'department': department} )
 
+def detail4(request):
+	template=loader.get_template('user.html')
+	context={
+	
+	}
+	return HttpResponse(template.render(context,request))
+	
+def detail7(request):
+	email=request.POST.get('mail','')
+	password=request.POST.get('passwd','')
+	k=User.objects.get(mail=email)
+	if k.password == password:
+		return redirect('home:detail4')
+	else:
+		return HttpResponse("<h2>Invalid Credentials</h2>")
+	
+	
+	
+	
+	
+	
