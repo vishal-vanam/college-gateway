@@ -66,14 +66,16 @@ def predictor(request):
 
 
 def signup(request):
+    # k.save()
+    return render(request, 'signup.html' , {})
+
+def adduser(request):
     name = request.POST.get('name', '')
     email = request.POST.get('mail', '')
     password = request.POST.get('password', '')
     # k = get_object_or_404(User, '')
-    k = User.objects.create(name=name, mail=email, password=password)
-    # k.save()
-    return render(request, 'signup.html' , {})
-
+    User.objects.create(name=name, mail=email, password=password)
+    return redirect('signin')
 
 def search(request):
     template = loader.get_template('search.html')
@@ -97,7 +99,7 @@ def search(request):
 def detail4(request):
     template=loader.get_template('user.html')
     context={
-	
+
 	}
     return HttpResponse(template.render(context,request))
 
