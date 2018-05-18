@@ -1,0 +1,6 @@
+{{ college }}
+<ul>
+    {% for department in college.department_set.all %}
+    <li>{{ college.c_name }} - {{ department.d_name }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <style>
+          table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width:250%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+      </style>
+
+{% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Search Results</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+<!--    <link href="css/1-col-portfolio.css" rel="stylesheet"-->
+    <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'user' %}">College Gateway</a>
+        <a class="btn btn-primary" href="{%url 'index'%}">Log Out</a>
+
+
+      </div>
+    </nav>
+<br>
+<br>
+<br>
+          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            <form action="#" method="post" novalidate>
+			{% csrf_token %}
+
+              <div class="form-row">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
+                  <input type="text" name="clg" value="{{source.clg}}" class="form-control form-control-lg" placeholder="Enter College..." required>
+                </div>
+                <div class="col-12 col-md-3">
+				<button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
+<br><br>
+    <!-- Page Content -->
+    <div class="container">
+
+
+<div class="col-mid-2">
+</div>
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-5">
+		<br>
+
+             <div style="margin:20px">
+          <div style="margin:auto">
+<table >
+  <tr>
+    <th>College</th>
+    <th>Place</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Pincode</th>
+    <th>Website</th>
+</tr>
+<tr>
+  <td>{{college}}</td>
+  <td>{{locality}}</td>
+
+		  <td>{{state}}</td>
+		  <td>{{country}}</td>
+		  <td>{{pincode}}</td>
+		  <td>{{link}}</td>
+</tr>
+</table>
+
+          </div>
+        </div>
+
+        </div>
+      </div>
+      <!-- /.row -->
+<br><br><br><br>
+      <!-- Pagination -->
+
+
+    </div>
+    <!-- /.container -->
+
+  </body>
+
+</html>

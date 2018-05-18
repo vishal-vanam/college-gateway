@@ -1,0 +1,9 @@
+{% if all_users %}
+    <ul>
+        {% for user in all_users %}
+            <li><a href="/home/users/{{ user.id }}/">{{ user.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>There are no users</h1>
+{% endif %}

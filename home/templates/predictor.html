@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Predictor</title>
+      <style>
+          table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+      </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+<!--    <link href="css/1-col-portfolio.css" rel="stylesheet"-->
+    <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'user' %}">College Gateway</a>
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+          &nbsp
+
+        <a class="btn btn-primary" href="{% url 'profile' %}">Profile</a>
+        <a class="btn btn-primary" href="{% url 'index' %}">Log Out</a>
+      </div>
+    </nav>
+
+<br>
+    <div style="margin:40px;">
+        <div style="margin:auto">
+    <table style="width:100%">
+<tr>
+    <th>College</th>
+    <th>Place</th>
+    <th>Department</th>
+    <th>Closing Rank</th>
+</tr>
+{% if department %}
+<ul>
+    {% for department in department %}
+    {% for profile in user.profile_set.all %}
+    {% if department.college.c_value == 0 %}
+    {% if profile.advanced_rank <= department.cl_rank %}
+    <tr>
+        <td>{{ department.college.c_name }}</td>
+        <td>{{ department.college.c_locality }}</td>
+        <td>{{ department.d_name }}</td>
+        <td>{{ department.cl_rank }}</td>
+    </tr>
+    {% endif %}
+    {% else %}
+    {% if profile.mains_rank <= department.cl_rank %}
+    <tr>
+        <td>{{ department.college.c_name }}</td>
+        <td>{{ department.college.c_locality }}</td>
+    <td>{{ department.d_name }} </td>
+    <td>{{ department.cl_rank }}</td>
+    </tr>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </table>
+        <div>
+        </div>
+    <br><br><br>
+{% else %}
+    <br><br><br>&nbsp&nbsp&nbsp<h2>No college matches with your profile</h2>
+{% endif %}
+</ul>
+</body>
+</html>

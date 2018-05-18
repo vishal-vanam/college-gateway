@@ -1,0 +1,15 @@
+{% if all_colleges %}
+    <ul>
+        {% for college in all_colleges %}
+        {% if college.c_name == 'NIT Silchar' %}
+        {% for department in all_departments %}
+            <li><a href="/home/{{ college.id }}/">{{ college.c_name }} - {{ department.d_name }}</a></li>
+        {% endfor %}
+        {% else %}
+            <li><a href="/home/{{ college.id }}/">{{ college.c_name }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>There is no such college</h1>
+{% endif %}
