@@ -36,19 +36,6 @@ def details(request, college_id):
     return render(request, 'result.html', {'college': college})
 
 
-def users(request):
-    all_colleges = College.objects.all()
-    all_departments = Department.objects.all()
-    all_users = User.objects.all()
-    context = {
-        'all_colleges': all_colleges,
-        'all_departments': all_departments,
-        'all_users': all_users
-    }
-    return render(request, 'users.html', context)
-
-
-
 def predictor(request):
     college = College.objects.all()
     department = Department.objects.all()
@@ -74,7 +61,7 @@ def adduser(request):
     email = request.POST.get('mail', '')
     password = request.POST.get('password', '')
     # k = get_object_or_404(User, '')
-    User.objects.create(name=name, mail=email, password=password)
+    new = User.objects.create(name=name, mail=email, password=password)
     return redirect('signin')
 
 def search(request):

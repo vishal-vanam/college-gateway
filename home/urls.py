@@ -9,7 +9,6 @@ path('adduser/', views.adduser, name='adduser'),
     path('search/', views.search, name='search'),
    path('signin/', views.signin, name='signin'),
    path('display/', views.display, name='display'),
-   path('users/', views.users, name='users'),
    path('user/', views.user, name='user'),
    path('user/profile', views.profile, name='profile'),
 

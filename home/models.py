@@ -7,10 +7,16 @@ class User(models.Model):
     password = models.CharField(max_length=100)
 
 
+    def __str__(self):
+        return self.name
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mains_rank = models.IntegerField()
     advanced_rank = models.IntegerField(default=100000)
+
+    def __str__(self):
+        return self.user.name
 
 
 class College(models.Model):

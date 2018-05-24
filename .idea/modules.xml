@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CollegeGateway.iml" filepath="$PROJECT_DIR$/.idea/CollegeGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Unikorn/unikorn-server/.idea/unikorn.iml" filepath="$PROJECT_DIR$/../Unikorn/unikorn-server/.idea/unikorn.iml" />
     </modules>
   </component>
 </project>
